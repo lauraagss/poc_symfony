@@ -1,0 +1,38 @@
+{% include 'nav.html.twig' %}
+{% block body %}
+    <div>
+            <p>{{ serie.name }}</p>
+            <img src="{{ serie.image }}">
+            <p>{{ serie.summary }}</p>
+            <p>{{ serie.releaseDate|date('d/m/y')}}</p>
+            <p>{{ serie.episodeCurrent }}</p>
+            <p>{{ serie.seasonCurrent }}</p>
+            <p>{{ serie.category.name }}</p>
+    </div>
+    <div class="container">
+        <h2>Modifier votre série</h2>
+        {{ form_start(form) }}
+        <div class="form-row">
+            <div class="col">
+                {{ form_row(form.name,{'label':'Nom de série', 'attr':
+                    {'placeholder': 'Veuillez saisir un nom'}}) }}
+                {{ form_row(form.summary,{'label':'Résumer', 'attr':
+                    {'placeholder': 'Veuillez un résumer'}}) }}
+                {{ form_row(form.releaseDate,{'label':'Date de réalisation', 'attr':
+                    {'placeholder': 'Veuillez saisir une date de réalisation'}}) }}
+                {{ form_row(form.episodeCurrent,{'label':'Episode actuel', 'attr':
+                    {'placeholder': 'Veuillez saisir un episode actuel'}}) }}
+                {{ form_row(form.seasonCurrent,{'label':'Saison actuel', 'attr':
+                    {'placeholder': 'Veuillez saisir un saison actuel'}}) }}
+                {{ form_row(form.image,{'label':'Image', 'attr':
+                    {'placeholder': 'Veuillez saisir le lien de votre image'}}) }}
+                {{ form_row(form.category,{'label':'Categorie', 'attr':
+                    {'placeholder': 'Veuillez saisir une catégorie pour votre série'}}) }}
+                {{ form_row(form.finish,{'label':'Terminer', 'attr':
+                    {'placeholder': 'Veuillez saisir si votre série et terminer'}}) }}
+            </div>
+        </div>
+        <button class="btn btn-primary login-form" type="submit">Enregistrer</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <h2>Créer votre compte</h2>
+        {{ form_start(form) }}
+        <div class="form-row">
+            <div class="col">
+                {{ form_row(form.lastname,{'label':'Nom', 'attr':
+                    {'placeholder': 'Veuillez saisir un nom'}}) }}
+                {{ form_row(form.username,{'label':'Prénom', 'attr':
+                    {'placeholder': 'Veuillez un prénom'}}) }}
+                {{ form_row(form.email,{'label':'Mail', 'attr':
+                    {'placeholder': 'Veuillez saisir une adresse mail'}}) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.password)}}
+            </div>
+        </div>
+        <button class="btn btn-primary login-form" type="submit">Enregistrer</button>
+        <a class="btn btn-primary" href="{{ path('login') }}">Connexion</a>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

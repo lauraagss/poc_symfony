@@ -1,0 +1,20 @@
+{% include 'nav.html.twig' %}
+{% block body %}
+    <div>
+    {% for serie in series %}
+        <a href="{{ path('singleSerie',{'id':serie.id }) }}">{{ serie.name }}</a>
+        <form method="post" action="{{ path('delete', {'id': serie.id}) }}" >
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete'~ serie.id) }}">
+            <button type="submit" class="btn btn-outline-danger">supprimer</button>
+        </form>
+        <img src="{{ serie.image }}">
+        <p>{{ serie.summary }}</p>
+        <p>{{ serie.releaseDate|date('d/m/y')}}</p>
+        <p>{{ serie.episodeCurrent }}</p>
+        <p>{{ serie.seasonCurrent }}</p>
+        <p>{{ serie.category.name }}</p>
+    {% endfor %}
+    </div>
+{% endblock %}
+
