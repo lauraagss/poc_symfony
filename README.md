@@ -1,5 +1,4 @@
 # Poc Symfony
-Répertoire du projet association sportive web
 
 VERSION SYMFONY :
 
